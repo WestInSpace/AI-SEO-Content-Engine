@@ -1,0 +1,11 @@
+# ignore dependencies
+node_modules/
+
+# ignore credentials
+.env
+
+#ignore the application logs
+logs/
+
+#ignore the config files
+backend/config/
