@@ -1,13 +1,3 @@
-Setting up the bckend .env file:
-
-1. navigate to the /backend directory  
-2. rename the .env-fill file to .env  
-3. Insert your Google gemini api key at the end of the GEMINI_API_KEY= line with no space  
-	(Your rate limits and key managment can be found in Google AI studio at : `https://aistudio.google.com`)  
-4. Put your desired port number for the backend at the end of the PORT= line with no space  
-
----
-
 Setting up the backend config files:
 
 1. Naviagte to the /backend directory  
