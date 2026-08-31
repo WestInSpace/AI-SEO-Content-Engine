@@ -46,24 +46,43 @@ const contentSchema = {
 	required: ['socialMediaPost', 'blogArticle', 'youtubeScript']
 };
 
-//Handler function for both GET and POST
-const handleGenerateContent = async (req, res) => {
-	try {
-		const apiKey = process.env.GEMINI_API_KEY;
-		if (!apiKey) throw new Error('GEMINI_API_KEY is not defined in process.env');
+//GET Route: Health check only, no api call
+router.get('/gemini', (req, res) => {
+	return res.status(200).json({
+		status: 'online',
+		message: 'Gemini endpoint is ready. Submit a POST request with keywords to generate content'
+	});
+});
 
-		//Get keywords from POST body or fallback to default array for GET
-		const keywords = req.body?.keywords || ['AI productivity tools', 'automation for small business', 'SEO optimization 2026'];
+//POST Route: Execute Gemini request
+router.post('/gemini', async (req, res) => {
+	try{
+		const { keywords } = req.body;
+
+		//Reject request if no keywords array or empty payload is passed
+		if(!keywords || !Array.isArray(keywords) || keywords.length === 0){
+			console.error('No keywords provided');
+			return res.status(400).json({
+				success: false,
+				error: 'Keywords are required to generate content.'
+			});
+		}
+
+		const apiKey = process.env.GEMINI_API_KEY;
+		if(!apiKey){
+			console.error('No Gemini api key provided in .env');
+			throw new Error('GEMINI_API_KEY is not defined in process.env');
+		}
 
 		const ai = new GoogleGenAI({ apiKey });
 
 		const prompt = `
 			You are an expert SEO strategist and content generator.
-			Generate a social media post, a blog article, and a YouTube video script optimized for search engines based on these keywords:
-			${keywords.join(', ')}
+            Generate a social media post, a blog article, and a YouTube video script optimized for search engines based on these keywords:
+            ${keywords.join(', ')}
 		`;
 
-		const response = await ai.models.generateContent({
+		const response = await ai.model.generateContent({
 			model: GEMINI_CONFIG.model,
 			contents: prompt,
 			config: {
@@ -80,19 +99,15 @@ const handleGenerateContent = async (req, res) => {
 			keywordsUsed: keywords,
 			data: jsonOutput
 		});
-
 	} catch (err) {
 		console.error('Error generating content:', err);
 		return res.status(500).json({
 			success: false,
-			error: 'Failed to generate SEO content',
+			error: 'Failed to generate SEO content.',
 			details: err.message
 		});
 	}
-};
-
-router.get('/gemini', handleGenerateContent);
-router.post('/gemini', handleGenerateContent);
+});
 
 export default router;
 
