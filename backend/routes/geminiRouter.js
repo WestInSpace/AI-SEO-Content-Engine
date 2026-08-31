@@ -46,21 +46,16 @@ const contentSchema = {
 	required: ['socialMediaPost', 'blogArticle', 'youtubeScript']
 };
 
-router.get('/gemini', async (req, res) => {
-	try{
-
+//Handler function for both GET and POST
+const handleGenerateContent = async (req, res) => {
+	try {
 		const apiKey = process.env.GEMINI_API_KEY;
+		if (!apiKey) throw new Error('GEMINI_API_KEY is not defined in process.env');
 
-		if(!apiKey){
-			throw new Error('GEMINI_API_KEY is not defined in process.env');
-		}
+		//Get keywords from POST body or fallback to default array for GET
+		const keywords = req.body?.keywords || ['AI productivity tools', 'automation for small business', 'SEO optimization 2026'];
 
-		//initialize the Gemini API client
 		const ai = new GoogleGenAI({ apiKey });
-
-
-		//hardcoded keywords for testing, to be swaped for req.body or req.query later
-		const keywords = ['AI productivity tools', 'automation for small business', 'SEO optimization 2026'];
 
 		const prompt = `
 			You are an expert SEO strategist and content generator.
@@ -90,12 +85,14 @@ router.get('/gemini', async (req, res) => {
 		console.error('Error generating content:', err);
 		return res.status(500).json({
 			success: false,
-			error: 'Failed to generate SEO content.',
+			error: 'Failed to generate SEO content',
 			details: err.message
 		});
 	}
+};
 
-});
+router.get('/gemini', handleGenerateContent);
+router.post('/gemini', handleGenerateContent);
 
 export default router;
 
