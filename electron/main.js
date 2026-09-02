@@ -63,6 +63,13 @@ app.whenReady().then(async () => {
 	createWindow();
 });
 
+// Quit when all windows are closed (exits Node process and frees ports)
+app.on('window-all-closed', () => {
+	if (process.platform !== 'darwin') {
+		app.quit();
+	}
+});
+
 
 
 
