@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import KeywordInput from '../../components/KeywordInput/KeywordInput.jsx';
 import ContentDisplay from '../../components/ContentDisplay/ContentDisplay.jsx';
+import ApiKeyModal from '../../components/ContentDisplay/ApiKeyModal.jsx';
 import styles from './MainPage.module.css';
 
 const BACKEND_PORT = import.meta.env.VITE_BACKEND_PORT || 5000;
@@ -9,6 +10,27 @@ export default function MainPage() {
 	const [loading, setLoading] = useState(false);
 	const [result, setResult] = useState(null);
 	const [error, setError] = useState(null);
+	const [isConfigured, setIsConfigured] = useState(true);
+
+	useEffect(() => {
+		//Check for stored API Key when Electron loads the page
+		if(window.electronAPI){
+			window.electronAPI.getApiKey().then((key) => {
+				if(key && key.trim().length > 0){
+					setIsConfigured(true);
+				}else{
+					setIsConfigured(false);
+				}
+			});
+		}
+	}, []);
+
+	const handleSaveApiKey = async (newKey) => {
+		if(window.electronAPI){
+			await window.electronAPI.saveApiKey(newKey);
+			setIsConfigured(true);
+		}
+	};
 
 	const handleGenerate = async (keywords) => {
 		setLoading(true);
@@ -38,9 +60,24 @@ export default function MainPage() {
 
 	return (
 		<div className={styles.container}>
-			<h1 className={styles.title}>SEO Content Engine</h1>
+
+			{/* Shows modal overlay if API Key is not set */}
+			{!isConfigured && <ApiKeyModal onSave={handleSaveApiKey} />}
+			
+			<div className={styles.headerRow}>
+				<h1 className={styles.title}>SEO AI Content Engine</h1>
+				{/* Handle Settings, change the API key */}
+				<button
+					onClick={() => setIsConfigured(false)}
+					className={styles.settingsButton}
+					title="Configure API Key"
+				>
+					Settings
+				</button>
+			</div>
+
 			<p className={styles.subtitle}>
-				Enter target keywords to generate a social media post, blog article, and YouTube script.
+				Enter target keywords to generate a social media post, blog article, and a YouTube video script:
 			</p>
 
 			<KeywordInput onSubmit={handleGenerate} loading={loading} />
@@ -48,6 +85,7 @@ export default function MainPage() {
 			{error && <div className={styles.errorMessage}>{error}</div>}
 
 			<ContentDisplay data={result} />
+
 		</div>
 	);
 }
