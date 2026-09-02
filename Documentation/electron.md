@@ -1,15 +1,11 @@
 *Development*
 
-starting the frontend for testing during development (assuming starting in the project root):  
-	`cd ./frontend`  
-	`npm run dev`
-
-starting the backend for testing during development (assuming starting in the project root):  
-	`cd ./backend`
-	`npm run dev`
-
-Running electron for testing (assuming starting in the project root):  
-	`npm run dev:electron`
+To test using electron during development:  
+	1. Open a terminal and navigate to the project frontend and run:  
+		`npm run dev:frontend`  
+	2. Open a new terminal and navigate to the project root and run:  
+		`npm run dev:electron`  
+	3. Watch a new window with the application open
 
 ---
 
@@ -18,6 +14,6 @@ Running electron for testing (assuming starting in the project root):
 To build the installer run this from the project root:  
 	`npm run dist`  
 
-This compiles your React frontend into frontend/dist/, bundles the Node backend and Electron runtime together, and generates an installer inside the root dist/ directory (.exe on Windows or .dmg on macOS).
-
+This will create a folder inside your project called "ai-seo-content-engine"  
+You can then find the built files inside this directory in the subdirectory dist/
 
