@@ -16,3 +16,7 @@ To see the values that are being returned visit:
 http://localhost:,[your backend port number]/api/response/gemini
 
 ---
+*Details*
+
+Electron is used to convert this into an application instead of just being visable in the browser.
+This makes it easy for anyone to be able to run the application.
