@@ -1,7 +1,30 @@
 {
-  "devDependencies": {
-    "cross-env": "^10.1.0",
-    "electron": "^44.1.1",
-    "electron-builder": "^26.15.3"
+  "name": "ai-seo-content-engine",
+  "version": "1.0.0",
+  "main": "electron/main.js",
+  "type": "module",
+  "scripts": {
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev:electron": "cross-env NODE_ENV=development electron .",
+    "build:frontend": "cd frontend && npm run build",
+    "dist": "npm run build:frontend && electron-builder"
+  },
+  "build": {
+    "appId": "com.seocontentengine.app",
+    "productName": "SEO Content Engine",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "electron/**/*",
+      "backend/**/*",
+      "frontend/dist/**/*",
+    ],
+    "win": {
+      "target": "nsis"
+    },
+    "mac": {
+      "target": "dmg"
+    }
   }
 }
