@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import KeywordInput from '../../components/KeywordInput/KeywordInput.jsx';
 import ContentDisplay from '../../components/ContentDisplay/ContentDisplay.jsx';
-import ApiKeyModal from '../../components/ContentDisplay/ApiKeyModal.jsx';
+import ApiKeyModal from '../../components/ApiKeyModal/ApiKeyModal.jsx';
 import styles from './MainPage.module.css';
 
 const BACKEND_PORT = import.meta.env.VITE_BACKEND_PORT || 5000;
