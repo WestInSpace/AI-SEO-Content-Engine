@@ -1,7 +1,7 @@
 *Development*
 
 To test using electron during development:  
-	1. Open a terminal and navigate to the project frontend and run:  
+	1. Open a terminal and navigate to the project root and run:  
 		`npm run dev:frontend`  
 	2. Open a new terminal and navigate to the project root and run:  
 		`npm run dev:electron`  
