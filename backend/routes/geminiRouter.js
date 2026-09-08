@@ -100,9 +100,17 @@ router.post('/gemini', async (req, res) => {
 		});
 	} catch (err) {
 		console.error('Error generating content:', err);
+
+		let userErrorMessage = 'Failed to generate SEO content';
+		if(err.status === 503){
+			userErrorMessage = 'Gemini servers are currently experiencing high demand. Please wait a moment and try again.';
+		}else if (err.status === 400 || err.status === 403){
+			userErrorMessage = 'Invalid API key or unauthorized request. Please check your settings.';
+		}
+
 		return res.status(500).json({
 			success: false,
-			error: 'Failed to generate SEO content.',
+			error: userErrorMessage,
 			details: err.message
 		});
 	}
