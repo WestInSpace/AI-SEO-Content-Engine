@@ -44,7 +44,8 @@ async function createWindow(){
 		mainWindow.loadURL('http://localhost:3000');
 		//mainWindow.webContents.openDevTools();
 	}else{
-		mainWindow.loadFile(path.join(__dirname, '../frontend/dist/index.html'));
+		const indexPath = path.join(app.getAppPath(), 'frontend', 'dist', 'index.html');
+        mainWindow.loadFile(indexPath);
 	}
 }
 
@@ -52,16 +53,33 @@ async function createWindow(){
 ipcMain.handle('get-api-key', () => getStoredApiKey());
 
 ipcMain.handle('save-api-key', (event, apiKey) => {
-	const config = { GEMINI_API_KEY: apiKey };
-	fs.writeFileSync(configPath, JSON.stringify(config, null, 2), 'utf8');
-	process.env.GEMINI_API_KEY = apiKey;
-	return true;
+	try{
+		const config = { GEMINI_API_KEY: apiKey };
+		fs.writeFileSync(configPath, JSON.stringify(config, null, 2), 'utf8');
+		process.env.GEMINI_API_KEY = apiKey;
+		return true;
+	}catch(err){
+		console.error('Failed to save API key:', err);
+		return false;
+	}
 });
 
 app.whenReady().then(async () => {
-	//start Express backend
-	await import('../backend/server.js');
+	try{
+		//start Express backend
+		await import('../backend/server.js');
+	}catch(err){
+		console.error('Failed to launch backend server:', err);
+	}
+
 	createWindow();
+
+	app.on('activate', () => {
+		if(BrowserWindow.getAllWindows().length === 0){
+			createWindow();
+		}
+	});
+
 });
 
 // Quit when all windows are closed (exits Node process and frees ports)
