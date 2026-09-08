@@ -9,3 +9,6 @@ logs/
 
 #ignore the config files
 backend/config/
+
+#ignore the built appliction files
+dist/
