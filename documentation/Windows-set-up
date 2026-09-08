@@ -1,0 +1,8 @@
+1. Download the repo
+2. Run cmd as admin
+3. Navigate to the backend directory and run: `npm install`
+4. Navigate to the frontend directory and run: `npm install`
+5. Navigate to the application root directory and run: `npm install`
+5. In the root directory and run: `npm run dist`
+	a. This will give you a dist folder in the root
+	b. In that dist folder you will find the .exe installer for the application
