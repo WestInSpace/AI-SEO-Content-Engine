@@ -20,7 +20,7 @@ run the command in the termianl for your chosen task:
 9.  `make build`			-> 	Build the application for the current OS with electron
 10. `make buildWin`			->	Build the application for Windows OS with electron
 11. `make buildLin`			->	Build the application for the Linux OS with electron
-12. `make buildMac`			->	Build the application for the Mac OS with electron
+12. `make buildMac`			->	Build the application for the Mac OS with electron, only works on Mac
 13. `make clearLogs`		->	Clear the local log files  
 14. `make deleteLogs`		->	Delete the local log files
 
