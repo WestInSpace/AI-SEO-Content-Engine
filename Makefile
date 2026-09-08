@@ -107,7 +107,7 @@ testElectron:
 	@echo "Application now running in electron."
 
 #Build the application in electron for the OS that is currently running Electron
-buildCurrentOS:
+build:
 	@echo "Building application in Electron..."
 	@npm run dist
 	@echo "Build Complete!"
