@@ -82,7 +82,7 @@ router.post('/gemini', async (req, res) => {
             ${keywords.join(', ')}
 		`;
 
-		const response = await ai.model.generateContent({
+		const response = await ai.models.generateContent({
 			model: GEMINI_CONFIG.model,
 			contents: prompt,
 			config: {
