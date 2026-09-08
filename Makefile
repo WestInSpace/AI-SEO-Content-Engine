@@ -2,7 +2,7 @@
 BACKEND_PORT := 5000
 FRONTEND_PORT := 3000
 
-.PHONY: install startBack stopBack startFront stopFront start stop testElectron build clearLogs deleteLogs
+.PHONY: install startBack stopBack startFront stopFront start stop testElectron build buildLin buildWin buildMac clearLogs deleteLogs
 
 # Install project dependencies
 install:
@@ -106,11 +106,32 @@ testElectron:
 	@npm run dev:electron
 	@echo "Application now running in electron."
 
-#Build the application in electron
-build:
+#Build the application in electron for the OS that is currently running Electron
+buildCurrentOS:
 	@echo "Building application in Electron..."
 	@npm run dist
 	@echo "Build Complete!"
+
+#Build the application in electron for Windows
+buildWin:
+	@echo "Building application in Electron for Windows..."
+	@npm run dist:win
+	@echo "Build Complete!"
+
+#Build the application in electron for Linux
+buildLin:
+	@echo "Building application in Electron for Linux..."
+	@npm run dist:lin
+	@echo "Build Complete!"
+
+#Build the application in electron for Mac
+#NOTE: THIS WILL ONLY WORK ON A MAC DEVICE
+buildMac:
+	@echo "Building application in Electron for Linux..."
+	@npm run dist:mac
+	@echo "Build Complete!"
+
+
 
 #Delete the content of the log files without deleting the file
 clearLogs:
