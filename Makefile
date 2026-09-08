@@ -10,6 +10,9 @@ install:
 	@cd ./backend && npm install
 	@echo "Installing frontend dependancies . . ."
 	@cd ./frontend && npm install
+	@echo "Installing root dependancies . . ."
+	@npm install
+	@echo "Complete!"
 
 # Start the backend running and redirect logs to log files
 startBack:
