@@ -9,6 +9,7 @@ export default defineConfig(({ mode }) => {
 	const FRONTEND_PORT = parseInt(env.VITE_FRONTEND_PORT) || 3000;
 
 	return{
+		base: './',
 		plugins: [react()],
 		envDir: envDir,
 		server: {
