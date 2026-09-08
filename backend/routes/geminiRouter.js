@@ -88,7 +88,6 @@ router.post('/gemini', async (req, res) => {
 			config: {
 				responseMimeType: 'application/json',
 				responseSchema: contentSchema,
-				temperature: 0.7,
 			}
 		});
 
