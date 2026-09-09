@@ -64,8 +64,9 @@ export default function MainPage() {
 			{/* Shows modal overlay if API Key is not set */}
 			{!isConfigured && <ApiKeyModal onSave={handleSaveApiKey} />}
 			
+			<h1 className={styles.title}>SEO AI Content Engine</h1>
+				<h2 className={styles.disclaimer}>Note: AI is used to generate results. Results may be unexpected or inaccurate.</h2>
 			<div className={styles.headerRow}>
-				<h1 className={styles.title}>SEO AI Content Engine</h1>
 				{/* Handle Settings, change the API key */}
 				<button
 					onClick={() => setIsConfigured(false)}
