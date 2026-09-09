@@ -17,7 +17,7 @@ export default function ApiKeyModal({ onSave }){
 	return(
 		<div classname={styles.modalOverlay}>
 			<div className={styles.modalCard}>
-				<h2>Setup Required</h2>
+				<h2 className={styles.header}>Setup Required</h2>
 				<p>Please enter your Google API Key to use this application:</p>
 
 				<form onSubmit={handleSubmit}>
