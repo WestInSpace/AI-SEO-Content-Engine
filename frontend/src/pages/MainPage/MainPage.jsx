@@ -38,7 +38,7 @@ export default function MainPage() {
 		setResult(null);
 
 		try {
-			const res = await fetch(`http://localhost:${BACKEND_PORT}/api/response/gemini`, {
+			const res = await fetch(`http://localhost:${BACKEND_PORT}/api/gemini`, {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify({ keywords })
