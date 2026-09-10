@@ -12,8 +12,8 @@ Setting up the backend config files:
 ---
 
 To run the backend navigate to the root folder and run: make startBack  
-To see the values that are being returned visit:  
-http://localhost:,[your backend port number]/api/response/gemini
+To see the values that are being returned from gemini get visit:  
+http://localhost:,[your backend port number]/api/gemini
 
 ---
 *Details*
