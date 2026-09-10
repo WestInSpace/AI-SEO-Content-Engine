@@ -8,7 +8,16 @@ const __dirname = path.dirname(__filename);
 
 //Get Wriable directory created by the os for this app
 const userDataPath = app.getPath('userData');
+const responseHistory = path.join(userDataPath, 'responseHistory');
 const configPath = path.join(userDataPath, 'config.json');
+
+//ensure the history folder exists on startup
+if(!fs.existsSync(historyDir)){
+	fs.mkdirSync(responseHistory, { recursive: true });
+}
+
+//pass the folder path to Express
+process.env.RESPONSE_HISTORY = responseHistory;
 
 function getStoredApiKey(){
 	if(fs.existsSync(configPath)){

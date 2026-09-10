@@ -9,3 +9,6 @@ logs/
 
 #ignore the built appliction files
 dist/
+
+#ignore responseHistory
+backend/responseHistory/
