@@ -15,7 +15,7 @@ app.use(cors({
 }));
 
 app.use(express.json());
-app.use('/api/gemini', geminiRouter); //mount the router to /api/gemini
+app.use('/api', geminiRouter); //mount the router to /api
 
 app.listen(BACKEND_PORT, () => {
 	console.log(`Backend server running at http://localhost:${BACKEND_PORT}/api`);

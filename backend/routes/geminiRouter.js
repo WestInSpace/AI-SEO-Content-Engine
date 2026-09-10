@@ -66,7 +66,7 @@ const contentSchema = {
 };
 
 //GET Route: Health check only, no api call
-router.get('/', (req, res) => {
+router.get('/gemini', (req, res) => {
 	return res.status(200).json({
 		status: 'online',
 		message: 'Gemini endpoint is ready. Submit a POST request with keywords to generate content'
@@ -74,7 +74,7 @@ router.get('/', (req, res) => {
 });
 
 //POST Route: Execute Gemini request
-router.post('/', async (req, res) => {
+router.post('/gemini', async (req, res) => {
 	try{
 		const { keywords } = req.body;
 
