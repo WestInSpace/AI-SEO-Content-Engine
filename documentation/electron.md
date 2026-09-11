@@ -17,3 +17,18 @@ To build the installer run this from the project root:
 This will create a folder inside your project called "ai-seo-content-engine"  
 You can then find the built files inside this directory in the subdirectory dist/
 
+---
+
+Some files will be stored for the app to work such as responseHistory (the history of all the ai responses)  
+The save location will vary by OS here is the location for each of the common OS:
+
+on linux the storage directory for the testing environment and built project is:  
+`~/.config/ai-seo-content-engine/`
+
+On Windows the storage directory for the testing environment and built project is:  
+`C:\Users\<username>\AppData\Roaming\ai-seo-content-engine\`
+
+On Mac the storage directory for the testing environment and built project is:  
+`~/Library/Application Support/ai-seo-content-engine/`
+
+---

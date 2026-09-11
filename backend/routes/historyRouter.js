@@ -42,6 +42,56 @@ router.get('/history', (req, res) => {
 	}
 });
 
+//POST Route: delete a file and returns succsses or not
+router.post('/history/delete', async (req, res) => {
+	try{
+		const { fileName } = req.body;
+
+		//Reject request if no fileName or empty payload is passed
+		if(!fileName || typeof fileName !== 'string' || fileName.trim().length === 0){
+			console.error('No fileName provided');
+			return res.status(400).json({
+				success: false,
+				error: 'fileName is required to retrive history.'
+			});
+		}
+
+		//Sanitise fileName
+		const safeFileName = path.basename(fileName);
+
+		//resolve base directory
+		const historyDir = process.env.RESPONSE_HISTORY || path.join(__dirname, '../responseHistory');
+        const filePath = path.join(historyDir, safeFileName);
+		
+		//Check if the file exists
+		if(!fs.existsSync(filePath)){
+			return res.status(404).json({
+				success: false,
+				error: `Requested history file: ${safeFileName} not found.`
+			});
+		}
+
+		//delete the file
+		await fs.promise.unlink(filePath);
+
+		return res.status(200).json({
+			success: true,
+			message: `File ${safeFileName} deleted successfully.`
+		});
+
+	} catch (err) {
+		console.error('Error deleting file:', err);
+
+		let userErrorMessage = 'Failed to delete file.';
+
+		return res.status(500).json({
+			success: false,
+			error: userErrorMessage,
+			details: err.message
+		});
+	}
+});
+
 
 //POST Route: return the contents of a requested file
 router.post('/history', async (req, res) => {

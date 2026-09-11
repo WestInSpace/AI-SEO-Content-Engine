@@ -140,6 +140,25 @@ example response on fail:
 		details: err.message
 	}
 
+When you want to delete a file visit this POST endpoint and pass it a file nmae in the body:  
+`http://localhost:5000/api/history/delete`
+
+This will delete the history file corrosponding to the  name you pass in the body.
+
+example response on success:  
+	status: 200 OK  
+	{  
+		success: true,  
+		message: `File ${safeFileName} deleted successfully.`  
+	}  
+
+example response on fail:  
+	status: 500  
+	{  
+		success: false,  
+		error: userErrorMessage,  
+		details: err.message  
+	}  
 
 ---
 
