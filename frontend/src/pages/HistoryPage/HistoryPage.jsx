@@ -64,9 +64,9 @@ export default function HistoryPage() {
 				if(selectedFile === fileName){
 					setSelectedFile(null);
 					setFileContent(null);
-				}else{
-					setError(data.error || 'Failed to delete file.');
 				}
+			}else{
+				setError(data.error || 'Failed to delete file.');
 			}
 
 		}catch(err){

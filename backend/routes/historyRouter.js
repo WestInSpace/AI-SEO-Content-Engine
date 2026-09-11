@@ -72,7 +72,7 @@ router.post('/history/delete', async (req, res) => {
 		}
 
 		//delete the file
-		await fs.promise.unlink(filePath);
+		fs.unlinkSync(filePath);
 
 		return res.status(200).json({
 			success: true,
