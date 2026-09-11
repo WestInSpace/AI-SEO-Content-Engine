@@ -1,0 +1,67 @@
+.container{
+	max-width: 56rem;
+	margin: 0 auto;
+}
+
+.title{
+	font-size: 1.875rem;
+	font-weight: 700;
+	color: #818cf8;
+	margin-bottom: 0.5rem;
+}
+
+.subtitle{
+	font-size: 1.3rem;
+	font-weight: 700;
+	color: #94a3b8;
+}
+
+.link{
+	font-size: 1.1rem;
+	font-weight: 400;
+	color: #6666FF;
+	cursor: pointer;
+	text-align: left;
+	transition: all 0.2s ease;
+}
+
+.link:hover{
+	font-size: 1.1rem;
+	font-weight: 400;
+	color: #FFFFFF;
+	text-align: left;
+	text-decoration: underline;
+}
+
+.disclaimer{
+	font-size: 1rem;
+	font-weight: 700;
+	color: #AA2222;
+	margin-bottom: 0.5rem;
+}
+
+.fileList{
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	margin: 1.5rem auto;
+	width: 100%;
+	max-width: 600px;
+}
+
+.infoText{
+	color: #888888;
+	margin-top: 1.5rem;
+	font-style: italic;
+}
+
+.errorText{
+	padding: 1rem;
+	margin-bottom: 1.5rem;
+	background-color: rgba(127, 29, 29, 0.4);
+	border: 1px solid #b91c1c;
+	color: #fca5a5;
+	border-radius: 0.5rem;
+}
+
+

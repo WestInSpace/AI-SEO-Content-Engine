@@ -1,0 +1,26 @@
+.title{
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	padding: 14px 18px;
+	background-color: #1E1E1E;
+	border: 1px solid #333333;
+	border-radius: 8px;
+	cursor: pointer;
+	transition: all 0.2s ease;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.title:hover{
+	background-color: #2A2A2A;
+	border-color: #007ACC;
+	transform: translateY(-1px);
+}
+
+.fileName{
+	color: #e0e0e0;
+	font-size: 0.95rem;
+	font-weight: 500;
+	font-family: monospace;
+}

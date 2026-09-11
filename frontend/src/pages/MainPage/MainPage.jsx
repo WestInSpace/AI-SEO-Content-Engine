@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import KeywordInput from '../../components/KeywordInput/KeywordInput.jsx';
 import ContentDisplay from '../../components/ContentDisplay/ContentDisplay.jsx';
 import ApiKeyModal from '../../components/ApiKeyModal/ApiKeyModal.jsx';
@@ -7,6 +8,7 @@ import styles from './MainPage.module.css';
 const BACKEND_PORT = import.meta.env.VITE_BACKEND_PORT || 5000;
 
 export default function MainPage() {
+	const navigate = useNavigate();
 	const [loading, setLoading] = useState(false);
 	const [result, setResult] = useState(null);
 	const [error, setError] = useState(null);
@@ -38,7 +40,7 @@ export default function MainPage() {
 		setResult(null);
 
 		try {
-			const res = await fetch(`http://localhost:${BACKEND_PORT}/api/response/gemini`, {
+			const res = await fetch(`http://localhost:${BACKEND_PORT}/api/gemini`, {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify({ keywords })
@@ -64,8 +66,10 @@ export default function MainPage() {
 			{/* Shows modal overlay if API Key is not set */}
 			{!isConfigured && <ApiKeyModal onSave={handleSaveApiKey} />}
 			
+			<h1 className={styles.title}>SEO AI Content Engine</h1>
+			<h2 className={styles.disclaimer}>Note: AI is used to generate results. Results may be unexpected or inaccurate.</h2>
+
 			<div className={styles.headerRow}>
-				<h1 className={styles.title}>SEO AI Content Engine</h1>
 				{/* Handle Settings, change the API key */}
 				<button
 					onClick={() => setIsConfigured(false)}
@@ -74,6 +78,16 @@ export default function MainPage() {
 				>
 					Settings
 				</button>
+
+				{/* Navigate to History Page */}
+				<button
+					onClick={() => navigate('/history')}
+					className={styles.historyButton}
+					title="View History"
+				>
+					History
+				</button>
+
 			</div>
 
 			<p className={styles.subtitle}>

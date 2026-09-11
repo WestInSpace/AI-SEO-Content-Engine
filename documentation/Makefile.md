@@ -17,9 +17,12 @@ run the command in the termianl for your chosen task:
 6.  `make start`			->	Start both the frontend and backend serverswith logging  
 7.  `make stop`				->	Stop both the frontend and backend servers  
 8.  `make testElectron`		->	Start the frontend and run the application in election for testing  
-9.  `make build`			-> 	Build the application with electron to obtain .exe  
-10. `make clearLogs`		->	Clear the local log files  
-11. `make deleteLogs`		->	Delete the local log files
+9.  `make build`			-> 	Build the application for the current OS with electron
+10. `make buildWin`			->	Build the application for Windows OS with electron
+11. `make buildLin`			->	Build the application for the Linux OS with electron
+12. `make buildMac`			->	Build the application for the Mac OS with electron, only works on Mac
+13. `make clearLogs`		->	Clear the local log files  
+14. `make deleteLogs`		->	Delete the local log files
 
 
 
