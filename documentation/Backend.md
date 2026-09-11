@@ -11,11 +11,6 @@ Setting up the backend config files:
 
 ---
 
-To run the backend navigate to the root folder and run: make startBack  
-To see the values that are being returned from gemini get visit:  
-http://localhost:,[your backend port number]/api/gemini
-
----
 *Details*
 
 Electron is used to convert this into an application instead of just being visable in the browser.

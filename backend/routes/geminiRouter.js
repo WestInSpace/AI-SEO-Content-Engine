@@ -20,7 +20,7 @@ function getResponseHistoryFileName(){
 	const min = String(now.getMinutes()).padStart(2, '0');
 	const ss = String(now.getSeconds()).padStart(2, '0');
 
-	return `${mm}-${dd}-${yyyy}_${hh}-${min}-${ss}.txt`
+	return `${mm}-${dd}-${yyyy}_${hh}-${min}-${ss}.json`
 }
 
 //define the expected json structure from gemini
