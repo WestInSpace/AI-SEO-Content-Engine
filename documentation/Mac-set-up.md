@@ -21,7 +21,8 @@
 2. Open the folder and locate the .env-fill file.  
 	a. Rename the file to .env  
 3. Fill in the information in the file  
-	a. Recommended information (Make sure to paste your API key after the GEMINI_API_KEY= field with no space):
+	a. Recommended information (Make sure to paste your API key after the GEMINI_API_KEY= field with no space):  
+		```
 		#Backend environment vatriables
 		GEMINI_API_KEY=
 		BACKEND_PORT=5001
@@ -30,6 +31,7 @@
 		#Frontend environment variables
 		VITE_BACKEND_PORT=5001
 		VITE_FRONTEND_PORT=3000
+		```
 4. Change the port numbers in the other files from 5000 to 5001 for the application install to work correctly on Mac.  
 	a. The following files will need their backend port number changed to port 5001:  
 		Note: The location that it needs changed will be at or near the top of all the files.  
