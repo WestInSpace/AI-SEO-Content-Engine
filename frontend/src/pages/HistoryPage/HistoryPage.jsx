@@ -40,6 +40,41 @@ export default function HistoryPage() {
 		fetchHistoryFiles();
 	}, []);
 
+	const handleDeleteFile = async (fileName) => {
+		if(!window.confirm(`Are you sure you want to delete: ${fileName}`)){
+			return;
+		}
+
+		try{
+			const response = await fetch(`http://localhost:${BACKEND_PORT}/api/history/delete`, {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify({ fileName: fileName })
+			});
+
+			const data = await response.json();
+
+			if(data.success){
+				//Remove file from UI state array
+				setHistoryFiles(prevFiles => prevFiles.filter(name => name !== fileName));
+
+				//Clear the content display if the delted file was currently selected
+				if(selectedFile === fileName){
+					setSelectedFile(null);
+					setFileContent(null);
+				}else{
+					setError(data.error || 'Failed to delete file.');
+				}
+			}
+
+		}catch(err){
+			console.error('Error deleting file:', err);
+			setError('Could not connect to backend server to delete file.');
+		}
+	};
+
 	const handleFileClick = async (fileName) => {
 		//console.log('Selected history file: ', fileName);
 		try{
@@ -101,6 +136,7 @@ export default function HistoryPage() {
 							key={fileName}
 							fileName={fileName}
 							onClick={handleFileClick}
+							onDelete={handleDeleteFile}
 						/>
 					))}
 				</div>
