@@ -52,7 +52,7 @@ router.post('/history/delete', async (req, res) => {
 			console.error('No fileName provided');
 			return res.status(400).json({
 				success: false,
-				error: 'fileName is required to retrive history.'
+				error: 'fileName is required to delete history.'
 			});
 		}
 
