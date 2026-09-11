@@ -19,10 +19,6 @@ if(!fs.existsSync(responseHistory)){
 //pass the folder path to Express
 process.env.RESPONSE_HISTORY = responseHistory;
 
-<<<<<<< HEAD
->>>>>>> Stashed changes
-=======
->>>>>>> develop
 function getStoredApiKey(){
 	if(fs.existsSync(configPath)){
 		try{
