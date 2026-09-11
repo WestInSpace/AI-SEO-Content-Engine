@@ -1,7 +1,6 @@
 Setting up the backend config files:
 
-1. Naviagte to the /backend directory  
-2. rename the config-fill directory to config
+1. Naviagte to the /backend/config directory  
 
 *GeminiConfig*
 
