@@ -90,25 +90,25 @@
 ---
 **Uninstall Node.js, (Reccommended for the average user, but not required)**
 
-Uninstall Node.js with these commands on Mac (If installed with nvm)
+#Uninstall Node.js with these commands on Mac (If installed with nvm)
 1. run this command `nvm list`  
 2. Uninstall the verison you want to uninstall with this command (replace X's with verion number): `nvm uninstall xx.xx.x`  
 3. Delete nvm with this command: `rm -rf ~/.nvm`
 
 
-Uninstall Node.js with these commands on Mac (If installed directly via website):  
-# Remove the Node binaries and package runners  
+#Uninstall Node.js with these commands on Mac (If installed directly via website):  
+1. Remove the Node binaries and package runners  
 `sudo rm -rf /usr/local/bin/node`  
 `sudo rm -rf /usr/local/bin/npm`  
 `sudo rm -rf /usr/local/bin/npx`  
 `sudo rm -rf /usr/local/bin/corepack`  
 
-# Remove core libraries and header files  
+2. Remove core libraries and header files  
 `sudo rm -rf /usr/local/lib/node_modules`  
 `sudo rm -rf /usr/local/include/node`  
 `sudo rm -rf /usr/local/share/man/man1/node.1`  
 
-# Remove local user configuration files and history  
+3. Remove local user configuration files and history  
 `rm -rf ~/.npm`  
 `rm -rf ~/.npmrc`  
 `rm -rf ~/.node-gyp`  
