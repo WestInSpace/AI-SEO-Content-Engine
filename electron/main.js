@@ -10,6 +10,17 @@ const __dirname = path.dirname(__filename);
 const userDataPath = app.getPath('userData');
 const configPath = path.join(userDataPath, 'config.json');
 
+<<<<<<< Updated upstream
+=======
+//ensure the history folder exists on startup
+if(!fs.existsSync(responseHistory)){
+	fs.mkdirSync(responseHistory, { recursive: true });
+}
+
+//pass the folder path to Express
+process.env.RESPONSE_HISTORY = responseHistory;
+
+>>>>>>> Stashed changes
 function getStoredApiKey(){
 	if(fs.existsSync(configPath)){
 		try{
