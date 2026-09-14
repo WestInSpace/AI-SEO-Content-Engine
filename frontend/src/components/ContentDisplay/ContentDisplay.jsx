@@ -8,6 +8,9 @@ export default function ContentDisplay({ data }) {
 
 	return (
 		<div className={styles.card}>
+			<h2 className={styles.bodyText}>
+				Keywords: {data.keywordsUsed.join(', ')}
+			</h2>
 			<div className={styles.tabs}>
 				<button
 					onClick={() => setActiveTab('social')}
@@ -32,10 +35,10 @@ export default function ContentDisplay({ data }) {
 			<div className={styles.content}>
 				{activeTab === 'social' && (
 					<div>
-						<span className={styles.platformBadge}>{data.socialMediaPost.platform}</span>
-						<p className={styles.bodyText}>{data.socialMediaPost.postText}</p>
+						<span className={styles.platformBadge}>{data.generated.socialMediaPost.platform}</span>
+						<p className={styles.bodyText}>{data.generated.socialMediaPost.postText}</p>
 						<div className={styles.hashtagContainer}>
-							{data.socialMediaPost.hashtags.map((tag, i) => (
+							{data.generated.socialMediaPost.hashtags.map((tag, i) => (
 								<span key={i} className={styles.hashtag}>#{tag.replace(/^#/, '')}</span>
 							))}
 						</div>
@@ -44,32 +47,32 @@ export default function ContentDisplay({ data }) {
 
 				{activeTab === 'blog' && (
 					<div>
-						<h2 className={styles.sectionTitle}>{data.blogArticle.title}</h2>
+						<h2 className={styles.sectionTitle}>{data.generated.blogArticle.title}</h2>
 						<p className={styles.metaBox}>
-							<strong>Meta Description:</strong> {data.blogArticle.metaDescription}
+							<strong>Meta Description:</strong> {data.generated.blogArticle.metaDescription}
 						</p>
-						<div className={styles.bodyText}>{data.blogArticle.body}</div>
+						<div className={styles.bodyText}>{data.generated.blogArticle.body}</div>
 					</div>
 				)}
 
 				{activeTab === 'youtube' && (
 					<div>
-						<h2 className={styles.sectionTitle}>{data.youtubeScript.title}</h2>
+						<h2 className={styles.sectionTitle}>{data.generated.youtubeScript.title}</h2>
 						<div className={styles.subSection}>
 							<p className={styles.subLabel}>Hook</p>
-							<p>{data.youtubeScript.hook}</p>
+							<p>{data.generated.youtubeScript.hook}</p>
 						</div>
 						<div className={styles.subSection}>
 							<p className={styles.subLabel}>Outline</p>
 							<ul className={styles.list}>
-								{data.youtubeScript.outline.map((item, i) => (
+								{data.generated.youtubeScript.outline.map((item, i) => (
 									<li key={i}>{item}</li>
 								))}
 							</ul>
 						</div>
 						<div className={styles.subSection}>
 							<p className={styles.subLabel}>Script</p>
-							<div className={styles.bodyText}>{data.youtubeScript.scriptBody}</div>
+							<div className={styles.bodyText}>{data.generated.youtubeScript.scriptBody}</div>
 						</div>
 					</div>
 				)}

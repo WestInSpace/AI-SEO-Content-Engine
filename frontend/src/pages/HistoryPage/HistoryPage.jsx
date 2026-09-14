@@ -92,7 +92,7 @@ export default function HistoryPage() {
 			const data = await response.json();
 
 			if(data.success){
-				setFileContent(data.data);
+				setFileContent(data);
 			}else{
 				setError(data.error || 'Failed to load content for selected file.');
 			}

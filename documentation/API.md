@@ -23,7 +23,7 @@ example response on success:
 	  "keywordsUsed": [  
 	    "automation"  
 	  ],  
-	  "data": {  
+	  "generated": {  
 	    "socialMediaPost": {  
 	      "platform": "LinkedIn",  
 	      "postText": "Are you ready to scale your business operations effortlessly? Discover how modern automation tools can streamline your workflow, save hundreds of hours, and boost overall productivity. Embrace the future of work today!",  
@@ -96,7 +96,7 @@ example response on success:
 	  "keywordsUsed": [  
 	    "automation"  
 	  ],  
-	  "data": {  
+	  "generated": {  
 	    "socialMediaPost": {  
 	      "platform": "LinkedIn",  
 	      "postText": "Are you ready to scale your business operations effortlessly? Discover how modern automation tools can streamline your workflow, save hundreds of hours, and boost overall productivity. Embrace the future of work today!",  

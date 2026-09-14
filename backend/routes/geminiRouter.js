@@ -115,7 +115,7 @@ router.post('/gemini', async (req, res) => {
 		const responsePayload = {
 			success: true,
 			keywordsUsed: keywords,
-			data: jsonOutput
+			generated: jsonOutput
 		};
 
 		//Save response snapshot to user data responseHistory directory

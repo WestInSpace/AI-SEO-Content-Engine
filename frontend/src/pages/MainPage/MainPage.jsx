@@ -52,7 +52,7 @@ export default function MainPage() {
 				throw new Error(data.error || 'Failed to fetch content');
 			}
 
-			setResult(data.data);
+			setResult(data);
 		} catch (err) {
 			setError(err.message);
 		} finally {
