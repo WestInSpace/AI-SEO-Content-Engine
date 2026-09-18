@@ -50,7 +50,7 @@ async function createWindow(){
 	const isDev = process.env.NODE_ENV === 'development';
 
 	if(isDev){
-		mainWindow.loadURL('http://localhost:3000');
+		mainWindow.loadURL('http://127.0.0.1:3000');
 		//mainWindow.webContents.openDevTools();
 	}else{
 		const indexPath = path.join(app.getAppPath(), 'frontend', 'dist', 'index.html');

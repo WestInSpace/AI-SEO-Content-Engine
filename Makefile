@@ -1,5 +1,5 @@
 #Port configuration
-BACKEND_PORT := 5000
+BACKEND_PORT := 5001
 FRONTEND_PORT := 3000
 
 .PHONY: install startBack stopBack startFront stopFront start stop testElectron build buildLin buildWin buildMac clearLogs deleteLogs

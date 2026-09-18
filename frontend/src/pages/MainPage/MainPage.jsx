@@ -5,7 +5,7 @@ import ContentDisplay from '../../components/ContentDisplay/ContentDisplay.jsx';
 import ApiKeyModal from '../../components/ApiKeyModal/ApiKeyModal.jsx';
 import styles from './MainPage.module.css';
 
-const BACKEND_PORT = import.meta.env.VITE_BACKEND_PORT || 5000;
+//const BACKEND_PORT = import.meta.env.VITE_BACKEND_PORT || 5001;
 
 export default function MainPage() {
 	const navigate = useNavigate();
@@ -40,7 +40,7 @@ export default function MainPage() {
 		setResult(null);
 
 		try {
-			const res = await fetch(`http://localhost:${BACKEND_PORT}/api/gemini`, {
+			const res = await fetch(`${window.electronAPI.backendUrl}/api/gemini`, {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify({ keywords })

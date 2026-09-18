@@ -8,7 +8,7 @@ import geminiRouter from './routes/geminiRouter.js';
 import historyRouter from './routes/historyRouter.js';
 
 const app = express();
-const BACKEND_PORT = process.env.BACKEND_PORT || 5000;
+const BACKEND_PORT = process.env.BACKEND_PORT || 5001;
 const FRONTEND_PORT = process.env.FRONTEND_PORT || 3000;
 
 app.use(cors({

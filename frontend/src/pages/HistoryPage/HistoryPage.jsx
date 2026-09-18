@@ -4,7 +4,7 @@ import FileDisplay from '../../components/FileDisplay/FileDisplay.jsx';
 import ContentDisplay from '../../components/ContentDisplay/ContentDisplay.jsx';
 import styles from './HistoryPage.module.css';
 
-const BACKEND_PORT = import.meta.env.VITE_BACKEND_PORT || 5000;
+//const BACKEND_PORT = import.meta.env.VITE_BACKEND_PORT || 5001;
 
 export default function HistoryPage() {
 	const navigate = useNavigate();
@@ -20,7 +20,7 @@ export default function HistoryPage() {
 		const fetchHistoryFiles = async () => {
 			try{
 				setLoading(true);
-				const response = await fetch(`http://localhost:${BACKEND_PORT}/api/history`);
+				const response = await fetch(`${window.electronAPI.backendUrl}/api/history`);
 				const data = await response.json();
 
 				if(data.success){
@@ -31,7 +31,7 @@ export default function HistoryPage() {
 
 			}catch(err){
 				console.error('Error fetching history:', err);
-				setError(data.error || 'Failed to fetch history files.');
+				//setError(data.error || 'Failed to fetch history files.');
 			}finally{
 				setLoading(false);
 			}
@@ -46,7 +46,7 @@ export default function HistoryPage() {
 		}
 
 		try{
-			const response = await fetch(`http://localhost:${BACKEND_PORT}/api/history/delete`, {
+			const response = await fetch(`${window.electronAPI.backendUrl}/api/history/delete`, {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json'
@@ -81,7 +81,7 @@ export default function HistoryPage() {
 			setSelectedFile(fileName);
 			setContentLoading(true);
 
-			const response = await fetch(`http://localhost:${BACKEND_PORT}/api/history`, {
+			const response = await fetch(`${window.electronAPI.backendUrl}/api/history`, {
 				method: 'POST',
 				headers: {
 					'Content-Type': 'application/json'
