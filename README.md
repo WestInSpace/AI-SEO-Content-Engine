@@ -44,7 +44,7 @@ Image of viewing history item: 10-03-2026_14-56-16 with keywords: WestInSpace, P
 
 **Video Demo of Project**
 
-[![Watch Me AI-SEO-Content-Engine Project Demo video](https://youtube.com)](https://youtu.be/4caUuWA5NeQ)
+[![Watch my AI-SEO-Content-Engine project demo video](https://youtube.com)](https://youtu.be/4caUuWA5NeQ)
 
 ---
 
