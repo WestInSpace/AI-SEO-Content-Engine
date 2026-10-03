@@ -12,3 +12,9 @@ dist/
 
 #ignore responseHistory
 backend/responseHistory/
+
+#ignore the demo video directory
+videos/
+
+#Ignore the files for opening the project in a VS Code dev container
+.devcontainer/
