@@ -53,14 +53,18 @@ Image of viewing history item: 10-03-2026_14-56-16 with keywords: WestInSpace, P
 ### Frontend
 - **Frameword:** React v19.2.8
 - **State/Routing:** React-dom v19.2.8, React-Router-dom v7.18.3
+- **Programming Languages:** JavaScript
+- **Styling language:** CSS
 
 ### Backend
 - **Runtime:** Node.js v24.17.0
 - **Framework:** Express v5.2.1
+- **Programming Languages:** JavaScript
 
-### Deployment
+### Deployment and Testing
 - **Applictaion:** electron v44.2.0
 - **Builder:** electron-builder v26.15.3
+- **Build Automation:** Makefile
 
 ---
 
@@ -89,4 +93,14 @@ Image of viewing history item: 10-03-2026_14-56-16 with keywords: WestInSpace, P
 - Build the application for your OS by running: `make build`  
 - Find the built .appimage, .exe or .dmg files in /dist/  
 - If your OS is not correctly detected see the Makefile.md docs to build for your OS specifically.  
+
+---
+
+## Known issues / planned improvments
+
+- When viewing the history the entries are displayed by their date generated (the name of their file). In the future I would like to display descriptive text for the name of each entry and allow the user to search for entries.
+
+- I would like to add a feature where the user can download a history file and then share it with someone else and then that person could upload that history file and view it and store it in their own application.
+
+---
 
